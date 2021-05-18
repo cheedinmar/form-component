@@ -1,0 +1,1 @@
+Vue.component('form-wrapper', require('./src/components/form/wrapper').default);
