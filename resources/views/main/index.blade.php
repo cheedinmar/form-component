@@ -11,12 +11,17 @@
                     <legend>Personal details</legend>
                     <div class='grid-x gird-margin-x'>
                         <div class='cell small-12 medium-6'>
-                            <input 
-                            type ='text'
-                            name ='first_name'
-                            id = 'first_name'
-                            v-model = props.fields.first_name
-                            value='Sebastian'>
+                           <text-input 
+                           :group='props.group'
+                           name='first_name'
+                           v-model='props.fields.first_name'
+                           current-value='Sebastian'
+                           :focus='true'
+                           placeholder='first name'
+                           maxlength='9'
+                           autocomplete='given-name'
+                           
+                           ></text-input>
                     </div>
                 </fieldset>
             </div>

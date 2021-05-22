@@ -3,7 +3,7 @@
         <slot
             :group= "group"
             :fields= "fields"
-            :validation="validationBags"
+            :validation="validationBag"
 
         ></slot>
 
@@ -17,7 +17,7 @@ export default {
         //represents the identity associated with all form elements like input and buttons
          group:{
              type:String,
-             required:true
+             required:false
          },
          //represents the action which will be triggered
          behaviour:{
@@ -28,8 +28,19 @@ export default {
     data(){
         return{
             fields:{},
-            validationBags:{}
+            validationBag:{}
+        }
+    },
+    created(){
+        EventBus.listen('initialize-' + this.group, this.initialize);
+    },
+    methods:{
+        initialize(data){
+            if(!this.validationBag.hasOwnProperty(data.field)){
+                this.validationBag[data.field] = data.rules;
+                
+            }
         }
     }
 }
-</script>
+</script> 

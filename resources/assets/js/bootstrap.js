@@ -11,3 +11,8 @@ if (token) {
 }
 
 window.Vue = require('vue');
+
+import EventBus from './src/core/EventBus';
+window.EventBus = EventBus;
+
+//we can call this event bus globally to access fire and listen methods
